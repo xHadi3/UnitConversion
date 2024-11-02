@@ -11,8 +11,6 @@ struct ContentView: View {
    
     
     @State private var inputlength = 0.0
-    
-    
     @State private var inputunitPicked = "Meters"
     @State private var outPutunitPicked = "Meters"
     var LengthUnits = ["Meters", "Kilometers", "Feet", "Yards" , "Miles"]
@@ -40,7 +38,6 @@ struct ContentView: View {
         
         
         var outPutlength : Double{
-            let meters: Double
             switch outPutunitPicked {
             case "Meters":
                 return baseUnit
@@ -58,27 +55,29 @@ struct ContentView: View {
         }
         
         
-        var body: some View {
+    var body: some View {
+        NavigationStack{
             Form{
-                Section{
-                    Picker("A", selection: $inputunitPicked){
+                Section("input Unit & Value"){
+                    Picker("input unit", selection: $inputunitPicked){
                         ForEach(LengthUnits, id: \.self){
                             Text($0)
                         }
                     }.pickerStyle(.segmented)
                     TextField("Input Length", value: $inputlength , format: .number)
                 }
-                Section{
-                    Picker("A", selection: $outPutunitPicked){
+                Section("output Unit & Value"){
+                    Picker("output unit", selection: $outPutunitPicked){
                         ForEach(LengthUnits, id: \.self){
                             Text($0)
                         }
                     }.pickerStyle(.segmented)
                     Text(outPutlength, format: .number)
                 }
-            }
+            }.navigationTitle("Unit Conversion")
             
         }
+    }
    
     }
 
