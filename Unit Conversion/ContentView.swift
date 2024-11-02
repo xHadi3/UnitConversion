@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  Unit Conversion
 //
-//  Created by Hadi Al zayer on 30/04/1446 AH.
+//  Created by Hadi on 30/04/1446 AH.
 //
 
 import SwiftUI
